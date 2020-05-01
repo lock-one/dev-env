@@ -8,7 +8,7 @@ if [ "$(id -u)" = "0" ]; then
 elif [ "$(id -u)" = "1500" ]; then
 	if [ ! -f /opt/postgresql/postgres-config ]; then
 		touch /opt/postgresql/configured
-		initdb -D /opt/postgresql-data
+		initdb -E UTF8 -D /opt/postgresql-data
 		pg_ctl -D /opt/postgresql-data -l /opt/postgresql-log/log start
 		createuser sonar
 		createdb -O sonar sonar
