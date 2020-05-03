@@ -114,6 +114,10 @@ RUN set -eux; \
 
 WORKDIR /
 
+RUN mkdir /opt/status \
+    && chown :administrators /opt/status \
+    && chmod -R 770 /opt/status
+
 # Entry point
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
